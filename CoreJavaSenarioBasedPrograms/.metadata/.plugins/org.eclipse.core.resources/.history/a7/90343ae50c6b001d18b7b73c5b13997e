@@ -1,0 +1,13 @@
+import java.util.Scanner;
+
+import com.ojas.model.DayOfWeek;
+
+public class Main {
+	public static void main(String[] args) {
+		DayOfWeek obj=new DayOfWeek();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter  The Day Name");
+		obj.setDayName(sc.next());
+	}
+
+}

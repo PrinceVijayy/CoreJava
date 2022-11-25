@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+import com.ojas.dao.DayOfWeek_DAO;
+import com.ojas.dao.DayOfWeek_DAO_Implementation;
+import com.ojas.model.DayOfWeek;
+
+public class Main {
+	public static void main(String[] args) {
+		DayOfWeek_DAO daoObj=new DayOfWeek_DAO_Implementation();
+		DayOfWeek obj = new DayOfWeek();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter  The Day Name");
+		String dummy=sc.next();
+		if(checkDayName(dummy).length()==3) {
+			obj.setDayName(checkDayName(dummy));
+			System.out.println("The Given Day is : "+obj.getDayName());
+			System.out.println("The Next Day of Given Day is : "+daoObj.getNextDay(obj.getDayName()));
+			System.out.println("The Previous Day of Given Day is : "+daoObj.getPrevious(obj.getDayName()));
+			System.out.println("Enter number of days you to add");
+			int noOfDays=sc.nextInt();
+			System.out.println("The day after adding number of days is : "+daoObj.addToCurrentDay(noOfDays, obj.getDayName()));
+		}else {
+			System.out.println(checkDayName(dummy));
+		}
+		
+
+	}
+
+	public static String checkDayName(String dayName) {
+		String[] weekShort = { "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT" };
+		String[] weekLong = { "SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY" };
+		String str = dayName.toUpperCase();
+		for (String data : weekShort) {
+			if (data.equals(str)) {
+				return data;
+			}
+		}
+		for (int i = 0; i < weekLong.length; i++) {
+			if(weekLong[i].equals(str)) {
+				return weekShort[i-1];
+			}
+		}
+		return "Please Enter Valid Day Name";
+
+	}
+
+}

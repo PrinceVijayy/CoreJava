@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+import com.ojas.dao.DayOfWeek_DAO;
+import com.ojas.dao.DayOfWeek_DAO_Implementation;
+import com.ojas.model.DayOfWeek;
+
+public class Main {
+	public static void main(String[] args) {
+		DayOfWeek_DAO daoObj=new DayOfWeek_DAO_Implementation();
+		DayOfWeek obj = new DayOfWeek();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter  The Day Name");
+		if(checkDayName(sc.next()).length()==3) {
+			obj.setDayName(sc.next());
+		}else {
+			System.out.println(checkDayName(sc.next()));
+		}
+		System.out.println(obj.getDayName());
+		System.out.println(daoObj.getNextDay(obj.getDayName()));
+		System.out.println(daoObj.getPrevious(obj.getDayName()));
+
+	}
+
+	public static String checkDayName(String dayName) {
+		String[] weekShort = { "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT" };
+		String[] weekLong = { "SUNDAY", "MONDAY", "TUEDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY" };
+		String str = dayName.toUpperCase();
+		for (String data : weekShort) {
+			if (data.equals(str)) {
+				return data;
+			}
+		}
+		for (int i = 0; i < weekLong.length; i++) {
+			if(weekLong[i].equals(str)) {
+				return weekShort[i];
+			}
+		}
+		return "Please Enter Valid Day Name";
+
+	}
+
+}

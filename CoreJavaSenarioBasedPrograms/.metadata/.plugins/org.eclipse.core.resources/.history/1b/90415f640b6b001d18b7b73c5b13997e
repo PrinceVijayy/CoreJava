@@ -1,0 +1,7 @@
+package com.ojas.dao;
+
+public class DayOfWeek_DAO_Implementation implements DayOfWeek_DAO{
+	
+	
+
+}

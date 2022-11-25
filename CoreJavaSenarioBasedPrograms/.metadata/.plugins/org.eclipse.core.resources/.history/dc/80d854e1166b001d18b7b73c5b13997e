@@ -1,0 +1,31 @@
+package com.ojas.dao;
+
+public class DayOfWeek_DAO_Implementation implements DayOfWeek_DAO{
+	String[] week = { "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT" };
+	public String getNextDay(String dayName) {
+		for(int i=0;i<week.length;i++) {
+			if(week[i].equals(dayName) && i<week.length-1 ) {
+				return week[i+1];
+			}
+		}
+		return "SUN";
+	}
+
+	public String getPrevious(String dayName) {
+		for(int i=1;i<week.length;i++) {
+			if(week[i].equals(dayName) && i>0 ) {
+				return week[i-1];
+			}
+		}
+		return "SAT";
+		
+	}
+
+	public String addToCurrentDay(int noOfDays, String dayName) {
+		
+		return null;
+	}
+	
+	
+
+}
