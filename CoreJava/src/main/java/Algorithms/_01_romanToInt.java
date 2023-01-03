@@ -1,6 +1,6 @@
 package programs;
 
-public class _01_Program {
+public class _01_romanToInt {
     public int romanToInt(String s) {
 
         char[] arr = s.toCharArray();
@@ -66,7 +66,7 @@ public class _01_Program {
     }
 
     public static void main(String[] args) {
-        _01_Program obj = new _01_Program();
+        _01_romanToInt obj = new _01_romanToInt();
         System.out.println(obj.romanToInt("MCMXCIV"));
     }
 
